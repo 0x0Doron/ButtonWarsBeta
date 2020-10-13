@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="El aburrimiento, confinamiento, cafe y otras muchas parafernalias han dado sus frutos en esta p**** m****">
+  <meta name="author" content="Aritz Master of Dark Arts">
+  <link rel="icon" type="image/png" href="../static/images/swordlogo.png" sizes="32x32" />
+  <title>{% block title %}{% endblock %}</title>
+  {% block css %}{% endblock %}
+  <!-- ANIMATED CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&display=swap" rel="stylesheet">
+  <!--stylesheet-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="../static/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../static/css/stylest.css" rel="stylesheet" type="text/css">
+  <link href="../static/css/custom-responsive-styles.css" rel="stylesheet" type="text/css">
+  <!--scripts-->
+  <script type="text/javascript" src="../static/scripts/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../static/scripts/all-plugins.js"></script>
+  <script type="text/javascript" src="../static/scripts/plugins-activate.js"></script>
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  <div class="logo">
+    <p style="color: white;">(BETA VERSIÓN)</p>
+    {% if current_user.is_authenticated %}
+      <p style="color: white;"><b>Hola {{current_user.username}}!</b>
+      <img src="{{url_for('static', filename='avatars/')}}{{current_user.avatar}}" size="32x32"/>
+      &nbsp; <a style="color: white;"class="a-none" href="/logout">(Cerrar Sesión)</a></p>
+    {% endif %}
+    <!--<img src="../static/images/swordlogo.png" widt="40px" height="60px"/>-->
+      {% block pagetop %}{% endblock %}
+  </div>
+  <a class="menu-toggle rounded" href="#">
+    <i class="fa fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="smooth-scroll" href="#"></a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="/"><b>Inicio</b></a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="/login"><b>Log In</b></a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="/register"><b>Registarme</b></a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="/rankin_mundial"><b>Rankin Mundial</b></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Content -->
+  <div class="container-fluid py-5 main-background">
+    {% block content %}
+
+    {% endblock %}
+  </div>
+  <!-- Content ends -->
+  <!-- Footer -->
+  <footer class="py-3 text-muted text-center text-small">
+    <p class="mb-1 text-white">&copy; Button wars</p></br>
+    <p class="mb-1 text-white">Build with
+      <a  href="https://www.python.org/" target="_blank"><b>Python</b></a> and
+      <a  href="https://palletsprojects.com/p/flask/" target="_blank"><b>Flask</b></a>
+    and all my &nbsp; <i class="fas fa-heart"></i></p></br>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a  href="/uncoming"><b>Privacy</b></a></li>
+      <li class="list-inline-item"><a  href="/uncoming"><b>Terms</b></a></li>
+      <li class="list-inline-item"><a  href="/uncoming"><b>Support</b></a></li>
+    </ul>
+  </footer>
+  {% block js %}{% endblock %}
+  <!-- Footer ends -->
+  <script type="text/javascript" src="../static/scripts/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Registro{% endblock %}
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+    <div class="col-md-4">
+      <a href="/"><img src="../static/images/swordlogo.png" /></a>
+      <h2 class="text-white">Registro</h2></div>
+    <div class="col-md-4 animated zoomIn">
+      {% for field, error in form.errors.items() %}
+        <div class="alert alert-danger">
+          {{ form[field].label }}: {{ ', '.join(errors) }}
+        </div>
+      {% endfor %}
+      <div class="py-4">
+        <form class="form" method="POST">
+          <div class="form-group text-white">
+            {{form.csrf_token}}
+            {{form.username.label() }}{{form.username(size="50", class="form-control")}}</br>
+            {{form.password.label() }}{{form.password(size="50", class="form-control")}}</br>
+            {{form.warcry.label() }}{{form.warcry(size="50", class="form-control")}}</br>
+            {{form.descripcion.label() }}{{form.descripcion(rows="5",cols="5", class="form-control")}}</br>
+            {{form.avatar.label()}}{{form.avatar(class="form-control")}}</br>
+          </div>
+          {{form.submit(class="btn btn-lg btn-primary btn-block")}}
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}

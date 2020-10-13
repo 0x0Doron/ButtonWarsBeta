@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block css %}
+<link href="../static/css/login.css" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block content %}
+    <div class="container-fluid animated flipInY">
+    <div class="row">
+      <div class="col-md-3"></div>
+        <div class="row main-content bg-success text-center">
+            <div class="col-md-4 text-center company__info">
+                <span class="company__logo"><h2><img src="../static/images/swordlogo.png" /></span></h2></span>
+                <h4 class="company_title">Button Wars</h4>
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login_form">
+                <div class="container-fluid ">
+                    <div class="row">
+                        <h2 id="login-text">Log In</h2>
+                    </div>
+                    <div class="row">
+                        <form method="POST" class="form-group">
+                          {% for field, error in form.errors.items() %}
+                          <div class="alert alert-danger">
+                            {{form[field].label}}: {{', '.join(error)}}
+                          </div>
+                          {% endfor %}
+                          {{form.csrf_token}}
+                            <div class="row">
+                              {{form.username(class="form__input",
+                                              placeholder="Username")}}
+                            </div>
+                            <div class="row">
+                              {{form.password(class="form__input",
+                                              placeholder="Password")}}
+                            </div>
+                            <div class="row">
+                              {{form.submit(class="btn")}}
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <p> ¿Nada mejor que hacer? <a href="/register">Registrate ahora!</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

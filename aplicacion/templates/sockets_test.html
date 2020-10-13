@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Sockets{% endblock %}
+{% block content %}
+<!-- Header Starts -->
+  <div class="container-fluid py-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 py-5">
+      <h1>Chat test</h1>
+      <ul id="messages"></ul>
+      <input type="text" id="myMessage">
+      <button type="button" id="send">Enviar</button>
+    </div>
+  </div>
+<!-- Header Ends -->
+{% endblock %}
+{% block js %}
+<!-- SocketIO cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" type="text/javascript" charset="utf-8"></script>
+<!-- JQuery -->
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<!-- sockets javascript logic -->
+<script src="../static/scripts/sockets.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}

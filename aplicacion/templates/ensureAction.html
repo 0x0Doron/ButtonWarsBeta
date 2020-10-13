@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Confirmar acción{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h3>ATENCIÓN!</h3>
+      <p>¿Estás segur@ de querer borrar el usuario '<b>{{user.username}}</b>'?</p>
+        <form class="form"  method="POST">
+          <div class="form-group">
+            {{ form.csrf_token }}
+            {{form.yes(class="btn btn-primary") }} {{form.no(class="btn btn-primary")}}<br/><br/>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

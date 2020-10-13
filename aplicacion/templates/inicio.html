@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<!-- Header Starts -->
+
+  <div class="container-fluid content-wrap text-center">
+    <div class="row">
+      <div class="col-md-3 py-5 animated zoomInUp">
+        <img src="../static/images/rank.png" /> <span class="top-3"> Top 3 Viciados</span></br></br>
+        <table class="table" style="background: white;">
+          <thead style="background: #07bcab;color: #ffffff;">
+            <tr>
+              <th scope="col">Clicks</th>
+              <th scope="col">Usuario</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in rankin %}
+              <tr>
+                <td><h3><span class="badge badge-secondary bg-warning">{{user.score}}</span><h3></td>
+                <td><a href="#" class="a-none"><b>{{user.username}}</b></a></td>
+                <td><img src="{{url_for('static', filename='avatars/')}}{{user.avatar}}" /></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        </br>
+        <a class="btn btn-primary " href="/rankin_mundial" >  <b>Ver todos</b>  </a>
+      </div>
+        <div class="col-md-8 animated zoomIn">
+          <span class="confirm_selection">
+            <p id="score">0</p>
+          </span>
+          <p class="text-white">Tus clicks</p>
+          <h1 class="title">BUTTON WARS</h1>
+          <h3>
+            <p>Pulsa el botón todas las veces que puedas</p>
+              <p>y posicionate en el rankin mundial
+            </p>
+          </h3>
+        </br>
+      </br>
+        <div>
+          {% if current_user.is_authenticated %}
+          <button class="btn btn-primary btn-xl" onclick="setScore()" >  <b>CLICK</b>  </button>
+          <form style="display: inline;"name="updateScoreForm" method="post" action="/score/{{current_user.get_id()}}/">
+            <button class="btn btn-primary btn-xl" onclick="updateScore()" >  <b>Guardar</b>  </button>
+            <input type="hidden" id="hiddenInput" name="hiddenInput" value="{{initScore}}"/>
+          </form>
+          {% else %}
+          <a class="btn btn-primary btn-xl" href="/login" >  <b>CLICK</b>  </a>&nbsp;
+          <a class="btn btn-primary btn-xl" href="/login" >  <b>GUARDAR</b>  </a>&nbsp;
+          {% endif %}
+        </div>
+      </br>
+      </br>
+      </br>
+      </div>
+    </div>
+
+  </div>
+<!-- Header Ends -->
+{% endblock %}

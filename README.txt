@@ -1,3 +1,2 @@
-Sistema de puntuación poco optimo,
-fase de prueba precaria
-Se actualiza con el botón guardar
+Pequeño proyecto realizado con la intención de aprender el Mini-Framework flask y conceptos básicos del desarrollo web :)
+

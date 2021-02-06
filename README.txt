@@ -10,5 +10,6 @@ y conceptos básicos del desarrollo web :)
 
 ----------------------------------------------------------------------------------------------------
 
-![Main Page](/images/buttonwars_01.png)
+![Button Wars Main Page](/images/buttonwars_01.png)
+Format: ![Alt Text](url)
 

@@ -1,10 +1,9 @@
 # ButtonWars
 
 Discontinnued
-----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
-Pequeño proyecto realizado con la intención de aprender el Mini-Framework flask 
-y conceptos básicos del desarrollo web :)
+No me juzgues, lo hice de resaca y sin haber dormido debidamente :)
 
                             Python + Flask + SQLite
 
